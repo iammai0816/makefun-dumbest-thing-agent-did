@@ -19,6 +19,9 @@ def main() -> None:
     entry_path = os.path.join(output_dir, "entry.txt")
     with open(entry_path, "w", encoding="utf-8") as handle:
         handle.write(ENTRY)
+    # The grader collects outputs as another user: leave the file
+    # readable by everyone, not just the user that ran this program.
+    os.chmod(entry_path, 0o644)
 
 
 if __name__ == "__main__":
